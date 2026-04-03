@@ -99,7 +99,7 @@
     .seg-gap { height: 100%; background: var(--teal-light); flex-shrink: 0;
                display: flex; align-items: center; padding: 0 4px; }
     .seg-rem { height: 100%; background: #D8DCE8; flex-shrink: 0; }   /* light gray remainder */
-    .bar-delta { width: 46px; font-family: monospace; font-size: 0.71rem; color: var(--red); text-align: right; flex-shrink: 0; }
+    .bar-delta { width: 46px; font-family: monospace; font-size: 0.71rem; color: var(--amber); text-align: right; flex-shrink: 0; }
     .bar-legend { display: flex; gap: 1rem; padding: 0.55rem 1.1rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
     .leg-item { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: #888; }
     .leg-dot  { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
@@ -634,7 +634,8 @@
 
     <div class="stat-boxes">
       <div class="stat-box">
-        <div class="stat-num green">80.9%</div>
+        <!-- <div class="stat-num green">80.9%</div> -->
+        <div class="stat-num" style="color:var(--teal-light);">80.9%</div>
         <div class="stat-lbl">of EmbSpatial-Bench depth questions are <em>consistent</em> with the perspective heuristic</div>
       </div>
       <div class="stat-box">
