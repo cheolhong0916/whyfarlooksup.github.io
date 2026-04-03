@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.ico">
+  <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -162,78 +162,6 @@
     .chips { display: flex; gap: 5px; flex-wrap: wrap; }
     .chip  { background: var(--bg-subtle); border-radius: 4px; padding: 2px 8px; font-family: monospace; font-size: 0.68rem; color: #666; }
 
-
-
-
-    /* ── bar-track-wrap: 기존 bar-track의 flex:1 역할 분리 ── */
-    .bar-track-wrap { flex: 1; position: relative; }
-    .bar-track { width: 100%; height: 25px; border-radius: 4px; overflow: hidden; display: flex; background: #E8EBF2; }
-
-    /* ── seg-ctr: 텍스트 제거, 순수 색상 막대만 ── */
-    .seg-ctr { height: 100%; background: var(--red); flex-shrink: 0; }
-
-    /* ── lbl-ctr: 빨간 bar 오른쪽 경계 badge ── */
-    .lbl-ctr {
-      position: absolute; top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 0.59rem; font-weight: 700;
-      color: var(--red); background: white;
-      border: 1px solid #d9534f; padding: 0 3px;
-      border-radius: 3px; white-space: nowrap;
-      pointer-events: none; z-index: 3; line-height: 1.6;
-    }
-    /* ── lbl-cons: 청록 bar 오른쪽 경계 badge (기존 스타일 명시적 선언) ── */
-    .lbl-cons {
-      position: absolute; top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 0.59rem; font-weight: 700;
-      color: var(--teal); background: white;
-      border: 1px solid var(--teal-light); padding: 0 3px;
-      border-radius: 3px; white-space: nowrap;
-      pointer-events: none; z-index: 2; line-height: 1.6;
-    }
-
-    /* ── htable sub-rows (fine-tuning variants) ── */
-    .htable tr.sub-row td     { font-size: 0.77rem; background: #FAFAFA; }
-    .htable tr.sub-row td.lft { color: #aaa; padding-left: 1.9rem; font-weight: 400; }
-    /* heat colours still apply on sub-row data cells */
-    .htable tr.sub-row td.h-lo  { background: #FDE8E6; color: #9B2335; }
-    .htable tr.sub-row td.h-mid { background: #FFF3E0; color: #7A4A00; }
-    .htable tr.sub-row td.h-hi  { background: #E8F5EE; color: #1C6B3A; }
-
-    /* ── bench-tabs (consistent/counter chart) ── */
-    .bench-tabs { display:flex; gap:0; width:fit-content; border-radius:6px 6px 0 0; overflow:hidden; border:1px solid var(--border); border-bottom:none; }
-    .bench-tab  { padding:0.45rem 1.1rem; font-size:0.78rem; font-weight:600; cursor:pointer; background:#F5F6FA; color:#999; border:none; font-family:'Google Sans',sans-serif; transition:all 0.15s; }
-    .bench-tab.active             { background:#fff; color:var(--navy); }
-    .bench-tab:hover:not(.active) { background:#ECEEF3; color:#666; }
-    .bench-data { display:none; }
-    .bench-data.active { display:block; }
-
-    /* ── benchmark performance chart (§01) ── */
-    .bp-tabs { display:flex; flex-wrap:wrap; gap:0; border-radius:6px 6px 0 0; overflow:hidden; border:1px solid var(--border); border-bottom:none; width:100%; }
-    .bp-tab  { flex:1; padding:0.4rem 0.5rem; font-size:0.71rem; font-weight:600; cursor:pointer; background:#F5F6FA; color:#999; border:none; border-right:1px solid var(--border); font-family:'Google Sans',sans-serif; transition:all 0.15s; text-align:center; white-space:nowrap; }
-    .bp-tab:last-child { border-right:none; }
-    .bp-tab.active             { background:#fff; color:var(--navy); }
-    .bp-tab:hover:not(.active) { background:#ECEEF3; color:#666; }
-    .bp-data  { display:none; }
-    .bp-data.active { display:block; }
-    .bp-chart { background:#fff; border:1px solid var(--border); border-radius:0 0 8px 8px; padding:0.85rem 1rem 0.6rem; margin-bottom:1.5rem; }
-    .bp-row   { display:flex; align-items:center; gap:0.7rem; margin-bottom:0.48rem; }
-    .bp-model { width:130px; font-size:0.74rem; color:#666; text-align:right; flex-shrink:0; }
-    .bp-model.sub { color:#bbb; }
-    .bp-model.str { color:var(--green); font-weight:600; }
-    .bp-track { flex:1; height:19px; background:#ECEEF3; border-radius:4px; overflow:hidden; }
-    .bp-bar   { height:100%; border-radius:4px; background:#7B9CB8; }
-    .bp-bar.s { background:var(--green); }
-    .bp-val   { width:36px; font-size:0.71rem; font-family:monospace; color:#666; text-align:right; flex-shrink:0; }
-    .bp-val.s { color:var(--green); font-weight:700; }
-    .bp-sep   { border:none; border-top:1px dashed var(--border); margin:0.3rem 0; }
-
-
-
-
-
-
     @media (max-width: 700px) {
       .role-cards, .metric-cards, .pca-grid, .scatter-grid, .route-cards { grid-template-columns: 1fr; }
     }
@@ -294,26 +222,28 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
 
-<!-- Full paper title exactly as in the paper -->
+          <!-- Full paper title exactly as in the paper -->
           <h1 class="title is-1 publication-title">
             Why Far Looks Up: Probing Spatial<br>Representation in Vision-Language Models
           </h1>
 
-          <!-- Authors -->
-          <div class="is-size-5 publication-authors" style="margin-top:0.8rem;">
-            <span class="author-block"><a href="https://cheolhong0916.github.io/" target="_blank" style="color:inherit;">Cheolhong Min</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="https://cubec.link/" target="_blank" style="color:inherit;">Jaeyun Jung</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="https://www.linkedin.com/in/da-eun-lee-9a369427b" target="_blank" style="color:inherit;">Dauen Lee</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="https://yeonsumia.github.io/" target="_blank" style="color:inherit;">Hyeonseong Jeon</a><sup>1,2</sup>,</span>
+          <!-- Authors: line break after Hyeonseong Jeon, matching the paper's layout.
+               Chan Hee Song: superscript 3,†,‡  (co-corresponding + currently at NVIDIA)
+               Jaesik Park:   superscript 1,†     (co-corresponding) -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Cheolhong Min<sup>1</sup>,</span>
+            <span class="author-block">Jaeyun Jung<sup>1</sup>,</span>
+            <span class="author-block">Dauen Lee<sup>1</sup>,</span>
+            <span class="author-block">Hyeonseong Jeon<sup>1,2</sup>,</span>
             <br>
-            <span class="author-block"><a href="https://ysu1989.github.io/" target="_blank" style="color:inherit;">Yu Su</a><sup>3</sup>,</span>
-            <span class="author-block"><a href="https://research.nvidia.com/person/jonathan-tremblay" target="_blank" style="color:inherit;">Jonathan Tremblay</a><sup>4</sup>,</span>
-            <span class="author-block"><a href="https://chanh.ee/" target="_blank" style="color:inherit;">Chan Hee Song</a><sup>3,†,‡</sup>,</span>
-            <span class="author-block"><a href="https://jaesik.info/" target="_blank" style="color:inherit;">Jaesik Park</a><sup>1,†</sup></span>
+            <span class="author-block">Yu Su<sup>3</sup>,</span>
+            <span class="author-block">Jonathan Tremblay<sup>4</sup>,</span>
+            <span class="author-block">Chan Hee Song<sup>3,†,‡</sup>,</span>
+            <span class="author-block">and Jaesik Park<sup>1,†</sup></span>
           </div>
 
           <!-- Affiliations -->
-          <div class="is-size-6 publication-authors" style="margin-top:1.2rem;">
+          <div class="is-size-6 publication-authors" style="margin-top:0.4rem;">
             <span class="author-block"><sup>1</sup>Seoul National University,</span>
             <span class="author-block"><sup>2</sup>Republic of Korea Air Force,</span>
             <span class="author-block"><sup>3</sup>The Ohio State University,</span>
@@ -321,21 +251,27 @@
           </div>
 
           <!-- Contact -->
-          <div class="is-size-7" style="margin-top:1rem; color:#888; font-family:monospace;">
+          <div class="is-size-7" style="margin-top:0.3rem; color:#888; font-family:monospace;">
             <a href="mailto:cheolhong.min@snu.ac.kr" style="color:#888;">cheolhong.min@snu.ac.kr</a> &nbsp;·&nbsp;
             <a href="mailto:jaesik.park@snu.ac.kr"   style="color:#888;">jaesik.park@snu.ac.kr</a> &nbsp;·&nbsp;
             <a href="mailto:lusong@nvidia.com"        style="color:#888;">lusong@nvidia.com</a>
           </div>
 
-          <!-- Footnotes -->
-          <div class="is-size-7" style="margin-top:0.9rem; color:#888; line-height:1.8;">
+          <!-- Footnotes: matching paper exactly -->
+          <div class="is-size-7" style="margin-top:0.4rem; color:#888; line-height:1.8;">
             <sup>†</sup> Co-corresponding author &nbsp;&nbsp;
             <sup>‡</sup> Currently at NVIDIA
           </div>
 
           <!-- Links -->
-          <div class="column has-text-centered" style="margin-top:1.5rem;">
+          <div class="column has-text-centered" style="margin-top:0.75rem;">
             <div class="publication-links">
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
               <span class="link-block">
                 <a href="#" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
@@ -412,6 +348,7 @@
   </div>
 </section>
 
+
 <!-- ═══ §01 THE PUZZLE ═══ -->
 <hr class="section-divider" id="puzzle">
 <section class="section">
@@ -423,7 +360,12 @@
       Others are uniformly robust. Why?
     </p>
 
-    <!-- Table 4 (논문 Table 4) — all models and fine-tuning scales -->
+    <!--
+      ❗ Table 4 (논문 Table 4)
+      아래 HTML 테이블은 논문 Table 4를 직접 구현한 것.
+      필요 시 스크린샷 이미지로 교체 가능:
+        <img src="./static/images/table4_benchmark.png" style="width:100%;" alt="Table 4">
+    -->
     <div class="htable-wrap">
       <table class="htable">
         <thead>
@@ -439,106 +381,34 @@
         </thead>
         <tbody>
           <tr class="note-row">
-            <td colspan="7">Indented rows (+80k etc.) denote fine-tuned variants at the given spatial data scale.</td>
+            <td colspan="7">Numbers in parentheses (e.g., 2M) = fine-tuning samples used for spatial training.</td>
           </tr>
-          <!-- Molmo-7B -->
           <tr>
-            <td class="lft">Molmo-7B</td>
-            <td class="h-mid">60.7</td><td class="h-mid">76.3</td><td class="h-hi">84.5</td>
-            <td class="h-mid">68.5</td><td class="h-mid">78.2</td><td class="h-mid">70.6</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 80k</td>
-            <td class="h-lo">52.9</td><td class="h-mid">62.3</td><td class="h-mid">71.0</td>
-            <td class="h-mid">67.5</td><td class="h-mid">72.6</td><td class="h-mid">60.8</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 400k</td>
-            <td class="h-mid">64.9</td><td class="h-hi">84.3</td><td class="h-hi">80.0</td>
-            <td class="h-mid">70.8</td><td class="h-mid">72.6</td><td class="h-mid">68.5</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 800k</td>
-            <td class="h-mid">69.1</td><td class="h-hi">90.0</td><td class="h-hi">82.0</td>
-            <td class="h-mid">70.8</td><td class="h-mid">75.0</td><td class="h-mid">61.5</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 2M</td>
+            <td class="lft">Molmo-7B (2M)</td>
             <td class="h-mid">74.3</td><td class="h-hi">93.7</td><td class="h-hi">87.3</td>
-            <td class="h-hi">81.3</td><td class="h-mid">71.0</td><td class="h-mid">69.2</td>
+            <td class="h-mid">81.3</td><td class="h-mid">71.0</td><td class="h-mid">69.2</td>
           </tr>
-          <!-- NVILA -->
-          <tr class="divider">
-            <td class="lft">NVILA-Lite-2B</td>
-            <td class="h-lo">54.0</td><td class="h-lo">58.6</td><td class="h-mid">69.2</td>
-            <td class="h-lo">52.3</td><td class="h-mid">64.5</td><td class="h-mid">67.1</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 80k</td>
-            <td class="h-mid">65.1</td><td class="h-mid">78.9</td><td class="h-mid">66.2</td>
-            <td class="h-mid">60.8</td><td class="h-lo">53.2</td><td class="h-mid">74.1</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 400k</td>
-            <td class="h-mid">62.1</td><td class="h-hi">83.2</td><td class="h-mid">74.3</td>
-            <td class="h-mid">67.0</td><td class="h-mid">71.8</td><td class="h-mid">63.6</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 800k</td>
-            <td class="h-mid">69.7</td><td class="h-hi">85.5</td><td class="h-mid">78.2</td>
-            <td class="h-mid">71.3</td><td class="h-lo">57.3</td><td class="h-mid">65.0</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 2M</td>
+          <tr>
+            <td class="lft">NVILA-2B (2M)</td>
             <td class="h-mid">69.4</td><td class="h-hi">91.4</td><td class="h-hi">93.8</td>
-            <td class="h-hi">87.2</td><td class="h-mid">70.2</td><td class="h-mid">62.9</td>
+            <td class="h-hi">87.2</td><td class="h-lo">62.9</td><td class="h-mid">70.2</td>
           </tr>
-          <!-- RoboRefer -->
+          <tr>
+            <td class="lft">Qwen2.5-VL-3B (2M)</td>
+            <td class="h-lo">65.7</td><td class="h-mid">68.8</td><td class="h-mid">58.5</td>
+            <td class="h-lo">52.2</td><td class="h-mid">78.3</td><td class="h-lo">53.2</td>
+          </tr>
           <tr class="divider strong-row">
             <td class="lft">RoboRefer-2B</td>
-            <td>92.0</td><td>96.5</td><td>95.7</td><td>90.5</td><td>84.7</td><td>79.7</td>
+            <td>92.0</td><td>96.5</td><td>95.7</td><td>90.5</td><td>79.7</td><td>84.7</td>
           </tr>
-          <!-- Qwen2.5 -->
-          <tr class="divider">
-            <td class="lft">Qwen2.5-VL-3B</td>
-            <td class="h-mid">62.3</td><td class="h-mid">67.4</td><td class="h-mid">70.3</td>
-            <td class="h-mid">60.2</td><td class="h-mid">68.6</td><td class="h-hi">83.9</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 80k</td>
-            <td class="h-lo">57.3</td><td class="h-lo">59.7</td><td class="h-mid">64.7</td>
-            <td class="h-mid">61.5</td><td class="h-lo">58.1</td><td class="h-mid">79.7</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 400k</td>
-            <td class="h-lo">58.6</td><td class="h-lo">58.2</td><td class="h-mid">62.0</td>
-            <td class="h-lo">54.5</td><td class="h-lo">58.9</td><td class="h-mid">78.3</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 800k</td>
-            <td class="h-mid">60.9</td><td class="h-lo">59.4</td><td class="h-lo">58.7</td>
-            <td class="h-lo">51.2</td><td class="h-lo">58.1</td><td class="h-mid">79.0</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 2M</td>
-            <td class="h-mid">65.7</td><td class="h-mid">68.8</td><td class="h-lo">58.5</td>
-            <td class="h-lo">52.2</td><td class="h-lo">53.2</td><td class="h-mid">78.3</td>
-          </tr>
-          <!-- Qwen3 -->
-          <tr class="divider strong-row">
+          <tr class="strong-row">
             <td class="lft">Qwen3-VL-235B</td>
-            <td>82.0</td><td>96.5</td><td>93.3</td><td>91.0</td><td>84.7</td><td>90.2</td>
+            <td>82.0</td><td>96.5</td><td>93.3</td><td>91.0</td><td>90.2</td><td>84.7</td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <!-- Bar chart version of Table 4 -->
-    <!-- <h3 style="font-family:'Google Sans',sans-serif; font-size:0.92rem; font-weight:600; color:var(--navy); margin:1.8rem 0 0.6rem;">
-      Benchmark performance — visualized
-    </h3>
-    <div id="bp-tab-row" class="bp-tabs"></div>
-    <div class="bp-chart" id="bp-chart-container"></div> -->
 
     <div class="note-box">
       Fine-tuned Molmo, NVILA, and Qwen show <strong>inconsistent cross-benchmark patterns</strong>.
@@ -547,63 +417,6 @@
     </div>
   </div>
 </section>
-
-<script>
-(function() {
-  const models = [
-    { name:'Molmo-7B',       sub:false, str:false, sep:false, vals:[60.7,76.3,84.5,68.5,78.2,70.6] },
-    { name:'+ 80k',          sub:true,  str:false, sep:false, vals:[52.9,62.3,71.0,67.5,72.6,60.8] },
-    { name:'+ 400k',         sub:true,  str:false, sep:false, vals:[64.9,84.3,80.0,70.8,72.6,68.5] },
-    { name:'+ 800k',         sub:true,  str:false, sep:false, vals:[69.1,90.0,82.0,70.8,75.0,61.5] },
-    { name:'+ 2M',           sub:true,  str:false, sep:false, vals:[74.3,93.7,87.3,81.3,71.0,69.2] },
-    { name:'NVILA-Lite-2B',  sub:false, str:false, sep:true,  vals:[54.0,58.6,69.2,52.3,64.5,67.1] },
-    { name:'+ 80k',          sub:true,  str:false, sep:false, vals:[65.1,78.9,66.2,60.8,53.2,74.1] },
-    { name:'+ 400k',         sub:true,  str:false, sep:false, vals:[62.1,83.2,74.3,67.0,71.8,63.6] },
-    { name:'+ 800k',         sub:true,  str:false, sep:false, vals:[69.7,85.5,78.2,71.3,57.3,65.0] },
-    { name:'+ 2M',           sub:true,  str:false, sep:false, vals:[69.4,91.4,93.8,87.2,70.2,62.9] },
-    { name:'RoboRefer-2B',   sub:false, str:true,  sep:true,  vals:[92.0,96.5,95.7,90.5,84.7,79.7] },
-    { name:'Qwen2.5-VL-3B',  sub:false, str:false, sep:true,  vals:[62.3,67.4,70.3,60.2,68.6,83.9] },
-    { name:'+ 80k',          sub:true,  str:false, sep:false, vals:[57.3,59.7,64.7,61.5,58.1,79.7] },
-    { name:'+ 400k',         sub:true,  str:false, sep:false, vals:[58.6,58.2,62.0,54.5,58.9,78.3] },
-    { name:'+ 800k',         sub:true,  str:false, sep:false, vals:[60.9,59.4,58.7,51.2,58.1,79.0] },
-    { name:'+ 2M',           sub:true,  str:false, sep:false, vals:[65.7,68.8,58.5,52.2,53.2,78.3] },
-    { name:'Qwen3-VL-235B',  sub:false, str:true,  sep:true,  vals:[82.0,96.5,93.3,91.0,84.7,90.2] },
-  ];
-  const benches = ['EmbSpatial','CV-2D Rel.','CV-3D Depth','CV-3D Dist.','BLINK Depth','BLINK Spat. Rel.'];
-
-  const tabRow = document.getElementById('bp-tab-row');
-  const container = document.getElementById('bp-chart-container');
-
-  benches.forEach((b, bi) => {
-    // tab
-    const tab = document.createElement('button');
-    tab.className = 'bp-tab' + (bi === 0 ? ' active' : '');
-    tab.textContent = b;
-    tab.onclick = () => {
-      document.querySelectorAll('.bp-tab').forEach((t,i) => t.classList.toggle('active', i===bi));
-      document.querySelectorAll('.bp-data').forEach((d,i) => d.classList.toggle('active', i===bi));
-    };
-    tabRow.appendChild(tab);
-
-    // panel
-    const panel = document.createElement('div');
-    panel.className = 'bp-data' + (bi === 0 ? ' active' : '');
-    panel.innerHTML = models.map(m => {
-      const v = m.vals[bi];
-      const mc = m.str ? 'bp-model str' : (m.sub ? 'bp-model sub' : 'bp-model');
-      const bc = m.str ? 'bp-bar s' : 'bp-bar';
-      const vc = m.str ? 'bp-val s' : 'bp-val';
-      const sep = m.sep ? '<hr class="bp-sep">' : '';
-      return `${sep}<div class="bp-row">
-        <div class="${mc}">${m.name}</div>
-        <div class="bp-track"><div class="${bc}" style="width:${v}%;"></div></div>
-        <div class="${vc}">${v}</div>
-      </div>`;
-    }).join('');
-    container.appendChild(panel);
-  });
-})();
-</script>
 
 
 <!-- ═══ §02 THE SHORTCUT ═══ -->
@@ -720,8 +533,6 @@
 
 
 
-
-
     <!-- 탭 버튼 -->
     <div class="bench-tabs">
       <button class="bench-tab active" onclick="switchBench('emb', this)">EmbSpatial-Bench</button>
@@ -730,7 +541,7 @@
 
     <div class="bar-chart" style="border-radius:0 8px 8px 8px;">
 
-      <!-- 컬럼 헤더 -->
+      <!-- 컬럼 헤더: "100" (스케일 기준점) + "Gap" -->
       <div style="display:flex; align-items:center; gap:0.8rem; padding:0.5rem 1.1rem 0.1rem;">
         <div style="width:120px; flex-shrink:0;"></div>
         <div style="flex:1; position:relative; font-size:0.6rem; color:#bbb;">
@@ -741,253 +552,246 @@
 
       <div class="bar-body" style="padding-top:0.4rem;">
 
-        <!-- ══════════════════════ EmbSpatial-Bench ══════════════════════
-            Segment widths (all on 0–100% scale):
-              seg-ctr: counter acc %
-              seg-gap: (consistent − counter) %
-              seg-rem: (100 − consistent) %
-            lbl-ctr at left:counter%, lbl-cons at left:consistent%
-        ═══════════════════════════════════════════════════════════════ -->
+        <!-- ══════════════════════════════════════════
+            EmbSpatial-Bench
+            seg widths: ctr=ctr%, gap=(cons-ctr)%, rem=(100-cons)%
+            lbl-cons positioned at left: cons%
+        ══════════════════════════════════════════ -->
         <div id="bench-emb" class="bench-data active">
 
-          <!-- Molmo-7B: cons=63.5, ctr=34.9 -->
+          <!-- Molmo-7B: cons=63.5, ctr=34.9, gap=28.6, rem=36.5 -->
           <div class="bar-row">
             <div class="bar-model">Molmo-7B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:34.9%;"></div>
+                <div class="seg-ctr" style="width:34.9%;">34.9</div>
                 <div class="seg-gap" style="width:28.6%;"></div>
                 <div class="seg-rem" style="width:36.5%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:34.9%;">34.9</span>
               <span class="lbl-cons" style="left:63.5%;">63.5</span>
             </div>
             <div class="bar-delta">−28.6</div>
           </div>
-          <!-- + 80k: cons=60.6, ctr=29.5 -->
+
+          <!-- + 80k: cons=60.6, ctr=29.5, gap=31.1, rem=39.4 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:29.5%;"></div>
+                <div class="seg-ctr" style="width:29.5%;">29.5</div>
                 <div class="seg-gap" style="width:31.1%;"></div>
                 <div class="seg-rem" style="width:39.4%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:29.5%;">29.5</span>
               <span class="lbl-cons" style="left:60.6%;">60.6</span>
             </div>
             <div class="bar-delta">−31.1</div>
           </div>
-          <!-- + 400k: cons=62.7, ctr=27.1 -->
+
+          <!-- + 400k: cons=62.7, ctr=27.1, gap=35.6, rem=37.3 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:27.1%;"></div>
+                <div class="seg-ctr" style="width:27.1%;">27.1</div>
                 <div class="seg-gap" style="width:35.6%;"></div>
                 <div class="seg-rem" style="width:37.3%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:27.1%;">27.1</span>
               <span class="lbl-cons" style="left:62.7%;">62.7</span>
             </div>
             <div class="bar-delta">−35.6</div>
           </div>
-          <!-- + 800k: cons=65.2, ctr=34.1 -->
+
+          <!-- + 800k: cons=65.2, ctr=34.1, gap=31.1, rem=34.8 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:34.1%;"></div>
+                <div class="seg-ctr" style="width:34.1%;">34.1</div>
                 <div class="seg-gap" style="width:31.1%;"></div>
                 <div class="seg-rem" style="width:34.8%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:34.1%;">34.1</span>
               <span class="lbl-cons" style="left:65.2%;">65.2</span>
             </div>
             <div class="bar-delta">−31.1</div>
           </div>
-          <!-- + 2M: cons=65.3, ctr=39.5 -->
+
+          <!-- + 2M: cons=65.3, ctr=39.5, gap=25.8, rem=34.7 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:39.5%;"></div>
+                <div class="seg-ctr" style="width:39.5%;">39.5</div>
                 <div class="seg-gap" style="width:25.8%;"></div>
                 <div class="seg-rem" style="width:34.7%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:39.5%;">39.5</span>
               <span class="lbl-cons" style="left:65.3%;">65.3</span>
             </div>
             <div class="bar-delta">−25.8</div>
           </div>
 
-          <!-- NVILA: cons=49.0, ctr=27.1 -->
+          <!-- NVILA-Lite-2B: cons=49.0, ctr=27.1, gap=21.9, rem=51.0 -->
           <div class="bar-row" style="margin-top:0.5rem;">
             <div class="bar-model">NVILA-Lite-2B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:27.1%;"></div>
+                <div class="seg-ctr" style="width:27.1%;">27.1</div>
                 <div class="seg-gap" style="width:21.9%;"></div>
                 <div class="seg-rem" style="width:51.0%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:27.1%;">27.1</span>
               <span class="lbl-cons" style="left:49.0%;">49.0</span>
             </div>
             <div class="bar-delta">−21.9</div>
           </div>
-          <!-- + 80k: cons=57.7, ctr=15.5 -->
+
+          <!-- + 80k: cons=57.7, ctr=15.5, gap=42.2, rem=42.3 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:15.5%;"></div>
+                <div class="seg-ctr" style="width:15.5%;">15.5</div>
                 <div class="seg-gap" style="width:42.2%;"></div>
                 <div class="seg-rem" style="width:42.3%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:15.5%;">15.5</span>
               <span class="lbl-cons" style="left:57.7%;">57.7</span>
             </div>
             <div class="bar-delta">−42.2</div>
           </div>
-          <!-- + 400k: cons=61.1, ctr=34.1 -->
+
+          <!-- + 400k: cons=61.1, ctr=34.1, gap=27.0, rem=38.9 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:34.1%;"></div>
+                <div class="seg-ctr" style="width:34.1%;">34.1</div>
                 <div class="seg-gap" style="width:27.0%;"></div>
                 <div class="seg-rem" style="width:38.9%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:34.1%;">34.1</span>
               <span class="lbl-cons" style="left:61.1%;">61.1</span>
             </div>
             <div class="bar-delta">−27.0</div>
           </div>
-          <!-- + 800k: cons=63.2, ctr=38.8 -->
+
+          <!-- + 800k: cons=63.2, ctr=38.8, gap=24.4, rem=36.8 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:38.8%;"></div>
+                <div class="seg-ctr" style="width:38.8%;">38.8</div>
                 <div class="seg-gap" style="width:24.4%;"></div>
                 <div class="seg-rem" style="width:36.8%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:38.8%;">38.8</span>
               <span class="lbl-cons" style="left:63.2%;">63.2</span>
             </div>
             <div class="bar-delta">−24.4</div>
           </div>
-          <!-- + 2M: cons=60.7, ctr=41.1 -->
+
+          <!-- + 2M: cons=60.7, ctr=41.1, gap=19.6, rem=39.3 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:41.1%;"></div>
+                <div class="seg-ctr" style="width:41.1%;">41.1</div>
                 <div class="seg-gap" style="width:19.6%;"></div>
                 <div class="seg-rem" style="width:39.3%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:41.1%;">41.1</span>
               <span class="lbl-cons" style="left:60.7%;">60.7</span>
             </div>
             <div class="bar-delta">−19.6</div>
           </div>
 
-          <!-- RoboRefer: cons=87.0, ctr=59.7 -->
+          <!-- RoboRefer-2B: cons=87.0, ctr=59.7, gap=27.3, rem=13.0 -->
           <div class="bar-row" style="margin-top:0.5rem;">
             <div class="bar-model">RoboRefer-2B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:59.7%;"></div>
+                <div class="seg-ctr" style="width:59.7%;">59.7</div>
                 <div class="seg-gap" style="width:27.3%;"></div>
                 <div class="seg-rem" style="width:13.0%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:59.7%;">59.7</span>
               <span class="lbl-cons" style="left:87.0%;">87.0</span>
             </div>
             <div class="bar-delta">−27.3</div>
           </div>
 
-          <!-- Qwen2.5: cons=54.7, ctr=32.6 -->
+          <!-- Qwen2.5-VL-3B: cons=54.7, ctr=32.6, gap=22.1, rem=45.3 -->
           <div class="bar-row" style="margin-top:0.5rem;">
             <div class="bar-model">Qwen2.5-VL-3B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:32.6%;"></div>
+                <div class="seg-ctr" style="width:32.6%;">32.6</div>
                 <div class="seg-gap" style="width:22.1%;"></div>
                 <div class="seg-rem" style="width:45.3%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:32.6%;">32.6</span>
               <span class="lbl-cons" style="left:54.7%;">54.7</span>
             </div>
             <div class="bar-delta">−22.1</div>
           </div>
-          <!-- + 80k: cons=50.6, ctr=30.2 -->
+
+          <!-- + 80k: cons=50.6, ctr=30.2, gap=20.4, rem=49.4 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:30.2%;"></div>
+                <div class="seg-ctr" style="width:30.2%;">30.2</div>
                 <div class="seg-gap" style="width:20.4%;"></div>
                 <div class="seg-rem" style="width:49.4%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:30.2%;">30.2</span>
               <span class="lbl-cons" style="left:50.6%;">50.6</span>
             </div>
             <div class="bar-delta">−20.4</div>
           </div>
-          <!-- + 400k: cons=52.6, ctr=27.1 -->
+
+          <!-- + 400k: cons=52.6, ctr=27.1, gap=25.5, rem=47.4 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:27.1%;"></div>
+                <div class="seg-ctr" style="width:27.1%;">27.1</div>
                 <div class="seg-gap" style="width:25.5%;"></div>
                 <div class="seg-rem" style="width:47.4%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:27.1%;">27.1</span>
               <span class="lbl-cons" style="left:52.6%;">52.6</span>
             </div>
             <div class="bar-delta">−25.5</div>
           </div>
-          <!-- + 800k: cons=55.8, ctr=26.4 -->
+
+          <!-- + 800k: cons=55.8, ctr=26.4, gap=29.4, rem=44.2 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:26.4%;"></div>
+                <div class="seg-ctr" style="width:26.4%;">26.4</div>
                 <div class="seg-gap" style="width:29.4%;"></div>
                 <div class="seg-rem" style="width:44.2%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:26.4%;">26.4</span>
               <span class="lbl-cons" style="left:55.8%;">55.8</span>
             </div>
             <div class="bar-delta">−29.4</div>
           </div>
-          <!-- + 2M: cons=60.9, ctr=24.0 -->
+
+          <!-- + 2M: cons=60.9, ctr=24.0, gap=36.9, rem=39.1 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:24.0%;"></div>
+                <div class="seg-ctr" style="width:24.0%;">24.0</div>
                 <div class="seg-gap" style="width:36.9%;"></div>
                 <div class="seg-rem" style="width:39.1%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:24.0%;">24.0</span>
               <span class="lbl-cons" style="left:60.9%;">60.9</span>
             </div>
             <div class="bar-delta">−36.9</div>
           </div>
 
-          <!-- Qwen3: cons=73.3, ctr=41.7 -->
+          <!-- Qwen3-VL-235B: cons=73.3, ctr=41.7, gap=31.6, rem=26.7 -->
           <div class="bar-row" style="margin-top:0.5rem;">
             <div class="bar-model">Qwen3-VL-235B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:41.7%;"></div>
+                <div class="seg-ctr" style="width:41.7%;">41.7</div>
                 <div class="seg-gap" style="width:31.6%;"></div>
                 <div class="seg-rem" style="width:26.7%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:41.7%;">41.7</span>
               <span class="lbl-cons" style="left:73.3%;">73.3</span>
             </div>
             <div class="bar-delta">−31.6</div>
@@ -996,247 +800,244 @@
         </div><!-- /bench-emb -->
 
 
-        <!-- ══════════════════════ CV-Bench-3D ══════════════════════ -->
+        <!-- ══════════════════════════════════════════
+            CV-Bench-3D
+        ══════════════════════════════════════════ -->
         <div id="bench-cv" class="bench-data">
 
-          <!-- Molmo-7B: cons=93.1, ctr=75.4 -->
+          <!-- Molmo-7B: cons=93.1, ctr=75.4, gap=17.7, rem=6.9 -->
           <div class="bar-row">
             <div class="bar-model">Molmo-7B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:75.4%;"></div>
+                <div class="seg-ctr" style="width:75.4%;">75.4</div>
                 <div class="seg-gap" style="width:17.7%;"></div>
                 <div class="seg-rem" style="width:6.9%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:75.4%;">75.4</span>
               <span class="lbl-cons" style="left:93.1%;">93.1</span>
             </div>
             <div class="bar-delta">−17.7</div>
           </div>
-          <!-- + 80k: cons=80.2, ctr=56.9 -->
+
+          <!-- + 80k: cons=80.2, ctr=56.9, gap=23.3, rem=19.8 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:56.9%;"></div>
+                <div class="seg-ctr" style="width:56.9%;">56.9</div>
                 <div class="seg-gap" style="width:23.3%;"></div>
                 <div class="seg-rem" style="width:19.8%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:56.9%;">56.9</span>
               <span class="lbl-cons" style="left:80.2%;">80.2</span>
             </div>
             <div class="bar-delta">−23.3</div>
           </div>
-          <!-- + 400k: cons=89.5, ctr=56.9 -->
+
+          <!-- + 400k: cons=89.5, ctr=56.9, gap=32.6, rem=10.5 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:56.9%;"></div>
+                <div class="seg-ctr" style="width:56.9%;">56.9</div>
                 <div class="seg-gap" style="width:32.6%;"></div>
                 <div class="seg-rem" style="width:10.5%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:56.9%;">56.9</span>
               <span class="lbl-cons" style="left:89.5%;">89.5</span>
             </div>
             <div class="bar-delta">−32.6</div>
           </div>
-          <!-- + 800k: cons=88.7, ctr=70.8 -->
+
+          <!-- + 800k: cons=88.7, ctr=70.8, gap=17.9, rem=11.3 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:70.8%;"></div>
+                <div class="seg-ctr" style="width:70.8%;">70.8</div>
                 <div class="seg-gap" style="width:17.9%;"></div>
                 <div class="seg-rem" style="width:11.3%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:70.8%;">70.8</span>
               <span class="lbl-cons" style="left:88.7%;">88.7</span>
             </div>
             <div class="bar-delta">−17.9</div>
           </div>
-          <!-- + 2M: cons=90.6, ctr=72.3 -->
+
+          <!-- + 2M: cons=90.6, ctr=72.3, gap=18.3, rem=9.4 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:72.3%;"></div>
+                <div class="seg-ctr" style="width:72.3%;">72.3</div>
                 <div class="seg-gap" style="width:18.3%;"></div>
                 <div class="seg-rem" style="width:9.4%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:72.3%;">72.3</span>
               <span class="lbl-cons" style="left:90.6%;">90.6</span>
             </div>
             <div class="bar-delta">−18.3</div>
           </div>
 
-          <!-- NVILA: cons=74.4, ctr=40.0 -->
+          <!-- NVILA-Lite-2B: cons=74.4, ctr=40.0, gap=34.4, rem=25.6 -->
           <div class="bar-row" style="margin-top:0.5rem;">
             <div class="bar-model">NVILA-Lite-2B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:40.0%;"></div>
+                <div class="seg-ctr" style="width:40.0%;">40.0</div>
                 <div class="seg-gap" style="width:34.4%;"></div>
                 <div class="seg-rem" style="width:25.6%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:40.0%;">40.0</span>
               <span class="lbl-cons" style="left:74.4%;">74.4</span>
             </div>
             <div class="bar-delta">−34.4</div>
           </div>
-          <!-- + 80k: cons=71.6, ctr=50.8 -->
+
+          <!-- + 80k: cons=71.6, ctr=50.8, gap=20.8, rem=28.4 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:50.8%;"></div>
+                <div class="seg-ctr" style="width:50.8%;">50.8</div>
                 <div class="seg-gap" style="width:20.8%;"></div>
                 <div class="seg-rem" style="width:28.4%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:50.8%;">50.8</span>
               <span class="lbl-cons" style="left:71.6%;">71.6</span>
             </div>
             <div class="bar-delta">−20.8</div>
           </div>
-          <!-- + 400k: cons=81.3, ctr=58.5 -->
+
+          <!-- + 400k: cons=81.3, ctr=58.5, gap=22.8, rem=18.7 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:58.5%;"></div>
+                <div class="seg-ctr" style="width:58.5%;">58.5</div>
                 <div class="seg-gap" style="width:22.8%;"></div>
                 <div class="seg-rem" style="width:18.7%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:58.5%;">58.5</span>
               <span class="lbl-cons" style="left:81.3%;">81.3</span>
             </div>
             <div class="bar-delta">−22.8</div>
           </div>
-          <!-- + 800k: cons=84.6, ctr=67.7 -->
+
+          <!-- + 800k: cons=84.6, ctr=67.7, gap=16.9, rem=15.4 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:67.7%;"></div>
+                <div class="seg-ctr" style="width:67.7%;">67.7</div>
                 <div class="seg-gap" style="width:16.9%;"></div>
                 <div class="seg-rem" style="width:15.4%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:67.7%;">67.7</span>
               <span class="lbl-cons" style="left:84.6%;">84.6</span>
             </div>
             <div class="bar-delta">−16.9</div>
           </div>
-          <!-- + 2M: cons=97.2, ctr=93.8 -->
+
+          <!-- + 2M: cons=97.2, ctr=93.8, gap=3.4, rem=2.8 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:93.8%;"></div>
+                <div class="seg-ctr" style="width:93.8%;">93.8</div>
                 <div class="seg-gap" style="width:3.4%;"></div>
                 <div class="seg-rem" style="width:2.8%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:93.8%;">93.8</span>
               <span class="lbl-cons" style="left:97.2%;">97.2</span>
             </div>
             <div class="bar-delta">−3.4</div>
           </div>
 
-          <!-- RoboRefer: cons=98.9, ctr=95.4 -->
+          <!-- RoboRefer-2B: cons=98.9, ctr=95.4, gap=3.5, rem=1.1 -->
           <div class="bar-row" style="margin-top:0.5rem;">
             <div class="bar-model">RoboRefer-2B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:95.4%;"></div>
+                <div class="seg-ctr" style="width:95.4%;">95.4</div>
                 <div class="seg-gap" style="width:3.5%;"></div>
                 <div class="seg-rem" style="width:1.1%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:95.4%;">95.4</span>
               <span class="lbl-cons" style="left:98.9%;">98.9</span>
             </div>
             <div class="bar-delta">−3.5</div>
           </div>
 
-          <!-- Qwen2.5: cons=75.5, ctr=55.4 -->
+          <!-- Qwen2.5-VL-3B: cons=75.5, ctr=55.4, gap=20.1, rem=24.5 -->
           <div class="bar-row" style="margin-top:0.5rem;">
             <div class="bar-model">Qwen2.5-VL-3B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:55.4%;"></div>
+                <div class="seg-ctr" style="width:55.4%;">55.4</div>
                 <div class="seg-gap" style="width:20.1%;"></div>
                 <div class="seg-rem" style="width:24.5%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:55.4%;">55.4</span>
               <span class="lbl-cons" style="left:75.5%;">75.5</span>
             </div>
             <div class="bar-delta">−20.1</div>
           </div>
-          <!-- + 80k: cons=69.7, ctr=60.0 -->
+
+          <!-- + 80k: cons=69.7, ctr=60.0, gap=9.7, rem=30.3 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:60.0%;"></div>
+                <div class="seg-ctr" style="width:60.0%;">60.0</div>
                 <div class="seg-gap" style="width:9.7%;"></div>
                 <div class="seg-rem" style="width:30.3%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:60.0%;">60.0</span>
               <span class="lbl-cons" style="left:69.7%;">69.7</span>
             </div>
             <div class="bar-delta">−9.7</div>
           </div>
-          <!-- + 400k: cons=65.8, ctr=58.5 -->
+
+          <!-- + 400k: cons=65.8, ctr=58.5, gap=7.3, rem=34.2 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:58.5%;"></div>
+                <div class="seg-ctr" style="width:58.5%;">58.5</div>
                 <div class="seg-gap" style="width:7.3%;"></div>
                 <div class="seg-rem" style="width:34.2%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:58.5%;">58.5</span>
               <span class="lbl-cons" style="left:65.8%;">65.8</span>
             </div>
             <div class="bar-delta">−7.3</div>
           </div>
-          <!-- + 800k: cons=61.2, ctr=58.5 -->
+
+          <!-- + 800k: cons=61.2, ctr=58.5, gap=2.7, rem=38.8 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:58.5%;"></div>
+                <div class="seg-ctr" style="width:58.5%;">58.5</div>
                 <div class="seg-gap" style="width:2.7%;"></div>
                 <div class="seg-rem" style="width:38.8%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:58.5%;">58.5</span>
               <span class="lbl-cons" style="left:61.2%;">61.2</span>
             </div>
             <div class="bar-delta">−2.7</div>
           </div>
-          <!-- + 2M: cons=62.0, ctr=53.8 -->
+
+          <!-- + 2M: cons=62.0, ctr=53.8, gap=8.2, rem=38.0 -->
           <div class="bar-row">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:53.8%;"></div>
+                <div class="seg-ctr" style="width:53.8%;">53.8</div>
                 <div class="seg-gap" style="width:8.2%;"></div>
                 <div class="seg-rem" style="width:38.0%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:53.8%;">53.8</span>
               <span class="lbl-cons" style="left:62.0%;">62.0</span>
             </div>
             <div class="bar-delta">−8.2</div>
           </div>
 
-          <!-- Qwen3: cons=98.1, ctr=90.8 -->
+          <!-- Qwen3-VL-235B: cons=98.1, ctr=90.8, gap=7.3, rem=1.9 -->
           <div class="bar-row" style="margin-top:0.5rem;">
             <div class="bar-model">Qwen3-VL-235B</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
-                <div class="seg-ctr" style="width:90.8%;"></div>
+                <div class="seg-ctr" style="width:90.8%;">90.8</div>
                 <div class="seg-gap" style="width:7.3%;"></div>
                 <div class="seg-rem" style="width:1.9%;"></div>
               </div>
-              <span class="lbl-ctr"  style="left:90.8%;">90.8</span>
               <span class="lbl-cons" style="left:98.1%;">98.1</span>
             </div>
             <div class="bar-delta">−7.3</div>
@@ -1247,13 +1048,12 @@
       </div><!-- /bar-body -->
 
       <div class="bar-legend">
-        <div class="leg-item"><div class="leg-dot" style="background:var(--red);"></div>Accuracy on counter samples</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--teal-light);"></div>Accuracy on consistent samples</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--red);"></div>Counter-heuristic accuracy</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--teal-light);"></div>Gain from consistent examples</div>
         <div class="leg-item"><div class="leg-dot" style="background:#D8DCE8;"></div>Below consistent accuracy (= 100 − consistent)</div>
       </div>
 
     </div><!-- /bar-chart -->
-
     <script>
       function switchBench(id, btn) {
         document.querySelectorAll('.bench-data').forEach(el => el.classList.remove('active'));
@@ -1262,6 +1062,7 @@
         btn.classList.add('active');
       }
     </script>
+
 
 
 
@@ -1310,10 +1111,6 @@
       <p class="fig-caption">
         <strong>Fig. 4:</strong> Mean accuracy heatmaps on SpatialTunnel for Molmo-7B. Accuracy on consistent cells improves steadily. In contrast, counter cells remain substantially harder, with the largest drop at 400k and a partial recovery at 2M.
       </p>
-
-      <div class="note-box" style="margin-top:1rem;">
-      Scaling steadily improves accuracy on <strong>consistent</strong> cells, but <strong>counter</strong> cells remain substantially harder throughout. The bias persists even at 2M training samples — confirming it is <strong>model-intrinsic</strong>, not a dataset artifact.
-    </div>
   </div>
 </section>
 
@@ -1420,7 +1217,7 @@
 
     <div class="route-cards">
       <div class="route-card">
-        <div class="route-title">🔵&ensp;Auxiliary depth supervision</div>
+        <div class="route-title">🔵&ensp;Explicit depth supervision</div>
         <div class="route-body">Large-scale RGB-D training directly exposes 3D geometry, building coherent and disentangled spatial axes.</div>
         <div class="chips">
           <span class="chip">RoboRefer-2B</span>
@@ -1452,12 +1249,12 @@
       arXiv ID: arXiv:XXXX.XXXXX → 실제 ID로 교체
       year: 2025 → 실제 제출 연도로 교체
     -->
-    <pre><code>@article{min2026whyfarlooksup,
+    <pre><code>@article{min2025whyfarlooksup,
   title   = {Why Far Looks Up: Probing Spatial Representation in Vision-Language Models},
   author  = {Min, Cheolhong and Jung, Jaeyun and Lee, Dauen and Jeon, Hyeonseong and
              Su, Yu and Tremblay, Jonathan and Song, Chan Hee and Park, Jaesik},
   journal = {arXiv preprint arXiv:XXXX.XXXXX},
-  year    = {2026},
+  year    = {2025},
 }</code></pre>
   </div>
 </section>
