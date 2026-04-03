@@ -1335,7 +1335,7 @@
         <div class="metric-abbr">Coh_D</div>
         <div class="metric-name">Axis Coherence (Distance)</div>
         <div class="metric-q">"Does depth have a stable, consistent direction in embedding space?"</div>
-        <div class="metric-body">Mean pairwise cosine similarity of sign-corrected delta vectors for the distance axis. High coherence = depth is a single stable direction, not a diffuse cloud.</div>
+        <div class="metric-body">Mean pairwise cosine similarity of sign-corrected delta vectors for the distance axis. High coherence = the model encodes the axis as a stable, consistent direction in representation space.</div>
         <div class="metric-formula">Coh = (2/N(N−1)) · Σ<sub>i&lt;j</sub> cos(δ̃ᵢ, δ̃ⱼ)</div>
         <div class="badge up">↑ Higher is better</div>
       </div>
@@ -1343,7 +1343,7 @@
         <div class="metric-abbr">VD-EI</div>
         <div class="metric-name">VD-Entanglement Index</div>
         <div class="metric-q">"Is 'far' confused with 'above' internally?"</div>
-        <div class="metric-body">Directional coupling between vertical and distance representations. Positive = perspective shortcut encoded. Zero = independence.</div>
+        <div class="metric-body">Directional coupling between vertical and distance representations. Highly positive = vertical & distance are coupled (perspective bias)</div>
         <div class="metric-formula">
           VD-EI = ¼[cos(μ<sub>above</sub>,μ<sub>far</sub>) + cos(μ<sub>below</sub>,μ<sub>close</sub>)<br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;−cos(μ<sub>above</sub>,μ<sub>close</sub>) − cos(μ<sub>below</sub>,μ<sub>far</sub>)]
