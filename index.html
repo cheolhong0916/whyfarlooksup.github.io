@@ -879,7 +879,11 @@
     <h3 class="title is-4" style="margin-top:2.5rem;">Does data scaling help?</h3>
     <p style="font-size:0.92rem; color:var(--text-mid); line-height:1.65; margin-bottom:1rem;">
       One natural question: <em>can we simply train away this bias with more spatial data?</em>
-      Click below to see how fine-tuned variants (80k → 2M spatial training samples) compare.
+      We fine-tuned each model on a mixture of five spatial reasoning datasets —
+      SAT, RoboSpatial, SPAR-7M, RefSpatial, and PRISM —
+      spanning synthetic/real, 2D/3D, and static/dynamic settings,
+      at four scales (80k, 400k, 800k, and 2M total samples).
+      Click below to compare.
     </p>
     <button id="toggle-ft-btn" onclick="toggleFtVariants()" style="
       display:inline-flex; align-items:center; gap:6px;
