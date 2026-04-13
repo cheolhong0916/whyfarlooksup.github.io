@@ -198,6 +198,10 @@
     .htable tr.sub-row td.lft { color: #aaa; padding-left: 1.9rem; font-weight: 400; }
     /* heat colours still apply on sub-row data cells */
     .htable tr.sub-row td.h-lo  { background: #FDE8E6; color: #9B2335; }
+
+    /* ── ft-variant rows in bar chart (hidden by default) ── */
+    .bar-row.ft-variant { display: none; }
+    .bar-row.ft-variant.visible { display: flex; }
     .htable tr.sub-row td.h-mid { background: #FFF3E0; color: #7A4A00; }
     .htable tr.sub-row td.h-hi  { background: #E8F5EE; color: #1C6B3A; }
 
@@ -373,7 +377,7 @@
       <img src="./static/images/teaser_alt2.png" style="width:100%; border-radius:8px;" alt="Figure 1">
 
       <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
-        VLMs often answer depth questions by using <strong>vertical image position as a proxy</strong> — not genuine 3D reasoning.
+        VLMs often answer spatial understanding questions by using <strong>vertical image position as a proxy</strong> — not genuine 3D reasoning.
         We diagnose this bias at the representation level and show that
         <strong>internal structure, not benchmark accuracy, predicts robustness.</strong>
       </h2>
@@ -438,96 +442,36 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="note-row">
-            <td colspan="7">Indented rows (+80k etc.) denote fine-tuned variants at the given spatial data scale.</td>
-          </tr>
           <!-- Molmo-7B -->
           <tr>
             <td class="lft">Molmo-7B</td>
             <td class="h-mid">60.7</td><td class="h-mid">76.3</td><td class="h-hi">84.5</td>
             <td class="h-mid">68.5</td><td class="h-mid">78.2</td><td class="h-mid">70.6</td>
           </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 80k</td>
-            <td class="h-lo">52.9</td><td class="h-mid">62.3</td><td class="h-mid">71.0</td>
-            <td class="h-mid">67.5</td><td class="h-mid">72.6</td><td class="h-mid">60.8</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 400k</td>
-            <td class="h-mid">64.9</td><td class="h-hi">84.3</td><td class="h-hi">80.0</td>
-            <td class="h-mid">70.8</td><td class="h-mid">72.6</td><td class="h-mid">68.5</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 800k</td>
-            <td class="h-mid">69.1</td><td class="h-hi">90.0</td><td class="h-hi">82.0</td>
-            <td class="h-mid">70.8</td><td class="h-mid">75.0</td><td class="h-mid">61.5</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 2M</td>
-            <td class="h-mid">74.3</td><td class="h-hi">93.7</td><td class="h-hi">87.3</td>
-            <td class="h-hi">81.3</td><td class="h-mid">71.0</td><td class="h-mid">69.2</td>
-          </tr>
           <!-- NVILA -->
-          <tr class="divider">
+          <tr>
             <td class="lft">NVILA-Lite-2B</td>
             <td class="h-lo">54.0</td><td class="h-lo">58.6</td><td class="h-mid">69.2</td>
             <td class="h-lo">52.3</td><td class="h-mid">64.5</td><td class="h-mid">67.1</td>
           </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 80k</td>
-            <td class="h-mid">65.1</td><td class="h-mid">78.9</td><td class="h-mid">66.2</td>
-            <td class="h-mid">60.8</td><td class="h-lo">53.2</td><td class="h-mid">74.1</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 400k</td>
-            <td class="h-mid">62.1</td><td class="h-hi">83.2</td><td class="h-mid">74.3</td>
-            <td class="h-mid">67.0</td><td class="h-mid">71.8</td><td class="h-mid">63.6</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 800k</td>
-            <td class="h-mid">69.7</td><td class="h-hi">85.5</td><td class="h-mid">78.2</td>
-            <td class="h-mid">71.3</td><td class="h-lo">57.3</td><td class="h-mid">65.0</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 2M</td>
-            <td class="h-mid">69.4</td><td class="h-hi">91.4</td><td class="h-hi">93.8</td>
-            <td class="h-hi">87.2</td><td class="h-mid">70.2</td><td class="h-mid">62.9</td>
-          </tr>
           <!-- RoboRefer -->
-          <tr class="divider strong-row">
+          <tr class="strong-row">
             <td class="lft">RoboRefer-2B</td>
             <td>92.0</td><td>96.5</td><td>95.7</td><td>90.5</td><td>84.7</td><td>79.7</td>
           </tr>
           <!-- Qwen2.5 -->
-          <tr class="divider">
+          <tr>
             <td class="lft">Qwen2.5-VL-3B</td>
             <td class="h-mid">62.3</td><td class="h-mid">67.4</td><td class="h-mid">70.3</td>
             <td class="h-mid">60.2</td><td class="h-mid">68.6</td><td class="h-hi">83.9</td>
           </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 80k</td>
-            <td class="h-lo">57.3</td><td class="h-lo">59.7</td><td class="h-mid">64.7</td>
-            <td class="h-mid">61.5</td><td class="h-lo">58.1</td><td class="h-mid">79.7</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 400k</td>
-            <td class="h-lo">58.6</td><td class="h-lo">58.2</td><td class="h-mid">62.0</td>
-            <td class="h-lo">54.5</td><td class="h-lo">58.9</td><td class="h-mid">78.3</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 800k</td>
-            <td class="h-mid">60.9</td><td class="h-lo">59.4</td><td class="h-lo">58.7</td>
-            <td class="h-lo">51.2</td><td class="h-lo">58.1</td><td class="h-mid">79.0</td>
-          </tr>
-          <tr class="sub-row">
-            <td class="lft">+ 2M</td>
-            <td class="h-mid">65.7</td><td class="h-mid">68.8</td><td class="h-lo">58.5</td>
-            <td class="h-lo">52.2</td><td class="h-lo">53.2</td><td class="h-mid">78.3</td>
-          </tr>
           <!-- Qwen3 -->
-          <tr class="divider strong-row">
+          <tr class="strong-row">
             <td class="lft">Qwen3-VL-235B</td>
             <td>82.0</td><td>96.5</td><td>93.3</td><td>91.0</td><td>84.7</td><td>90.2</td>
+          </tr>
+          <tr class="note-row">
+            <td colspan="7">More baseline models will be added.</td>
           </tr>
         </tbody>
       </table>
@@ -541,7 +485,7 @@
     <div class="bp-chart" id="bp-chart-container"></div> -->
 
     <div class="note-box">
-      Fine-tuned Molmo, NVILA, and Qwen show <strong>inconsistent cross-benchmark patterns</strong>.
+      Some models (Molmo, NVILA, Qwen2.5) show <strong>inconsistent cross-benchmark patterns</strong>.
       In contrast, RoboRefer and Qwen3-VL-235B are <strong>consistently strong across all benchmarks</strong>.
       Benchmark accuracy alone cannot explain this gap.
     </div>
@@ -636,7 +580,7 @@
       <div class="stat-box">
         <!-- <div class="stat-num green">80.9%</div> -->
         <div class="stat-num" style="color:var(--teal-light);">80.9%</div>
-        <div class="stat-lbl">of EmbSpatial-Bench depth questions are <em>consistent</em> with the perspective heuristic</div>
+        <div class="stat-lbl">of EmbSpatial-Bench questions are <em>consistent</em> with the perspective heuristic</div>
       </div>
       <div class="stat-box">
         <div class="stat-num red">10.7%</div>
@@ -766,7 +710,7 @@
             <div class="bar-delta">−28.6</div>
           </div>
           <!-- + 80k: cons=60.6, ctr=29.5 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -780,7 +724,7 @@
             <div class="bar-delta">−31.1</div>
           </div>
           <!-- + 400k: cons=62.7, ctr=27.1 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -794,7 +738,7 @@
             <div class="bar-delta">−35.6</div>
           </div>
           <!-- + 800k: cons=65.2, ctr=34.1 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -808,7 +752,7 @@
             <div class="bar-delta">−31.1</div>
           </div>
           <!-- + 2M: cons=65.3, ctr=39.5 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -837,7 +781,7 @@
             <div class="bar-delta">−21.9</div>
           </div>
           <!-- + 80k: cons=57.7, ctr=15.5 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -851,7 +795,7 @@
             <div class="bar-delta">−42.2</div>
           </div>
           <!-- + 400k: cons=61.1, ctr=34.1 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -865,7 +809,7 @@
             <div class="bar-delta">−27.0</div>
           </div>
           <!-- + 800k: cons=63.2, ctr=38.8 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -879,7 +823,7 @@
             <div class="bar-delta">−24.4</div>
           </div>
           <!-- + 2M: cons=60.7, ctr=41.1 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -923,7 +867,7 @@
             <div class="bar-delta">−22.1</div>
           </div>
           <!-- + 80k: cons=50.6, ctr=30.2 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -937,7 +881,7 @@
             <div class="bar-delta">−20.4</div>
           </div>
           <!-- + 400k: cons=52.6, ctr=27.1 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -951,7 +895,7 @@
             <div class="bar-delta">−25.5</div>
           </div>
           <!-- + 800k: cons=55.8, ctr=26.4 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -965,7 +909,7 @@
             <div class="bar-delta">−29.4</div>
           </div>
           <!-- + 2M: cons=60.9, ctr=24.0 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1015,7 +959,7 @@
             <div class="bar-delta">−17.7</div>
           </div>
           <!-- + 80k: cons=80.2, ctr=56.9 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1029,7 +973,7 @@
             <div class="bar-delta">−23.3</div>
           </div>
           <!-- + 400k: cons=89.5, ctr=56.9 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1043,7 +987,7 @@
             <div class="bar-delta">−32.6</div>
           </div>
           <!-- + 800k: cons=88.7, ctr=70.8 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1057,7 +1001,7 @@
             <div class="bar-delta">−17.9</div>
           </div>
           <!-- + 2M: cons=90.6, ctr=72.3 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1086,7 +1030,7 @@
             <div class="bar-delta">−34.4</div>
           </div>
           <!-- + 80k: cons=71.6, ctr=50.8 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1100,7 +1044,7 @@
             <div class="bar-delta">−20.8</div>
           </div>
           <!-- + 400k: cons=81.3, ctr=58.5 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1114,7 +1058,7 @@
             <div class="bar-delta">−22.8</div>
           </div>
           <!-- + 800k: cons=84.6, ctr=67.7 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1128,7 +1072,7 @@
             <div class="bar-delta">−16.9</div>
           </div>
           <!-- + 2M: cons=97.2, ctr=93.8 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1172,7 +1116,7 @@
             <div class="bar-delta">−20.1</div>
           </div>
           <!-- + 80k: cons=69.7, ctr=60.0 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 80k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1186,7 +1130,7 @@
             <div class="bar-delta">−9.7</div>
           </div>
           <!-- + 400k: cons=65.8, ctr=58.5 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 400k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1200,7 +1144,7 @@
             <div class="bar-delta">−7.3</div>
           </div>
           <!-- + 800k: cons=61.2, ctr=58.5 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 800k</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1214,7 +1158,7 @@
             <div class="bar-delta">−2.7</div>
           </div>
           <!-- + 2M: cons=62.0, ctr=53.8 -->
-          <div class="bar-row">
+          <div class="bar-row ft-variant">
             <div class="bar-model" style="color:#bbb;">+ 2M</div>
             <div class="bar-track-wrap">
               <div class="bar-track">
@@ -1264,15 +1208,36 @@
       }
     </script>
 
-
-
-
-
-
-
-
-
-
+    <!-- ── Does data scaling help? ── -->
+    <h3 class="title is-4" style="margin-top:2.5rem;">Does data scaling help?</h3>
+    <p style="font-size:0.92rem; color:var(--text-mid); line-height:1.65; margin-bottom:1rem;">
+      One natural question: <em>can we simply train away this bias with more spatial data?</em>
+      Click below to reveal fine-tuned variants (80k → 2M spatial training samples) in the chart above.
+    </p>
+    <button id="toggle-ft-btn" onclick="toggleFtVariants()" style="
+      display:inline-flex; align-items:center; gap:6px;
+      padding:0.5rem 1.2rem; border-radius:6px;
+      border:1px solid var(--border); background:#F5F6FA;
+      font-family:'Google Sans',sans-serif; font-size:0.82rem; font-weight:600;
+      color:var(--navy); cursor:pointer; transition:all 0.15s;
+    ">
+      <span style="font-size:0.7rem;">▶</span> Show data-scaling variants
+    </button>
+    <script>
+      function toggleFtVariants() {
+        const rows = document.querySelectorAll('.bar-row.ft-variant');
+        const btn = document.getElementById('toggle-ft-btn');
+        const isVisible = rows[0] && rows[0].classList.contains('visible');
+        rows.forEach(r => r.classList.toggle('visible', !isVisible));
+        btn.innerHTML = isVisible
+          ? '<span style="font-size:0.7rem;">▶</span> Show data-scaling variants'
+          : '<span style="font-size:0.7rem;">▼</span> Hide data-scaling variants';
+      }
+    </script>
+    <div class="note-box">
+      Scaling partially helps <strong>consistent-set accuracy</strong> — but <strong>counter-set accuracy lags behind</strong>
+      and entanglement often worsens. The bias is not a data quantity problem.
+    </div>
 
 
     <!-- SpatialTunnel -->
