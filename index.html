@@ -199,9 +199,12 @@
     /* heat colours still apply on sub-row data cells */
     .htable tr.sub-row td.h-lo  { background: #FDE8E6; color: #9B2335; }
 
-    /* ── ft-variant rows in bar chart (hidden by default) ── */
-    .bar-row.ft-variant { display: none; }
-    .bar-row.ft-variant.visible { display: flex; }
+    /* ── ft-bench panels (scaling chart below toggle) ── */
+    .ft-bench-panel { display: none; }
+    .ft-bench-panel.active { display: block; }
+    .ft-bench-tab { padding:0.45rem 1.1rem; font-size:0.78rem; font-weight:600; cursor:pointer; background:#F5F6FA; color:#999; border:none; font-family:'Google Sans',sans-serif; transition:all 0.15s; }
+    .ft-bench-tab.active { background:#fff; color:var(--navy); }
+    .ft-bench-tab:hover:not(.active) { background:#ECEEF3; color:#666; }
     .htable tr.sub-row td.h-mid { background: #FFF3E0; color: #7A4A00; }
     .htable tr.sub-row td.h-hi  { background: #E8F5EE; color: #1C6B3A; }
 
@@ -709,62 +712,6 @@
             </div>
             <div class="bar-delta">−28.6</div>
           </div>
-          <!-- + 80k: cons=60.6, ctr=29.5 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 80k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:29.5%;"></div>
-                <div class="seg-gap" style="width:31.1%;"></div>
-                <div class="seg-rem" style="width:39.4%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:29.5%;">29.5</span>
-              <span class="lbl-cons" style="left:60.6%;">60.6</span>
-            </div>
-            <div class="bar-delta">−31.1</div>
-          </div>
-          <!-- + 400k: cons=62.7, ctr=27.1 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 400k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:27.1%;"></div>
-                <div class="seg-gap" style="width:35.6%;"></div>
-                <div class="seg-rem" style="width:37.3%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:27.1%;">27.1</span>
-              <span class="lbl-cons" style="left:62.7%;">62.7</span>
-            </div>
-            <div class="bar-delta">−35.6</div>
-          </div>
-          <!-- + 800k: cons=65.2, ctr=34.1 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 800k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:34.1%;"></div>
-                <div class="seg-gap" style="width:31.1%;"></div>
-                <div class="seg-rem" style="width:34.8%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:34.1%;">34.1</span>
-              <span class="lbl-cons" style="left:65.2%;">65.2</span>
-            </div>
-            <div class="bar-delta">−31.1</div>
-          </div>
-          <!-- + 2M: cons=65.3, ctr=39.5 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 2M</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:39.5%;"></div>
-                <div class="seg-gap" style="width:25.8%;"></div>
-                <div class="seg-rem" style="width:34.7%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:39.5%;">39.5</span>
-              <span class="lbl-cons" style="left:65.3%;">65.3</span>
-            </div>
-            <div class="bar-delta">−25.8</div>
-          </div>
 
           <!-- NVILA: cons=49.0, ctr=27.1 -->
           <div class="bar-row" style="margin-top:0.5rem;">
@@ -779,62 +726,6 @@
               <span class="lbl-cons" style="left:49.0%;">49.0</span>
             </div>
             <div class="bar-delta">−21.9</div>
-          </div>
-          <!-- + 80k: cons=57.7, ctr=15.5 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 80k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:15.5%;"></div>
-                <div class="seg-gap" style="width:42.2%;"></div>
-                <div class="seg-rem" style="width:42.3%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:15.5%;">15.5</span>
-              <span class="lbl-cons" style="left:57.7%;">57.7</span>
-            </div>
-            <div class="bar-delta">−42.2</div>
-          </div>
-          <!-- + 400k: cons=61.1, ctr=34.1 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 400k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:34.1%;"></div>
-                <div class="seg-gap" style="width:27.0%;"></div>
-                <div class="seg-rem" style="width:38.9%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:34.1%;">34.1</span>
-              <span class="lbl-cons" style="left:61.1%;">61.1</span>
-            </div>
-            <div class="bar-delta">−27.0</div>
-          </div>
-          <!-- + 800k: cons=63.2, ctr=38.8 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 800k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:38.8%;"></div>
-                <div class="seg-gap" style="width:24.4%;"></div>
-                <div class="seg-rem" style="width:36.8%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:38.8%;">38.8</span>
-              <span class="lbl-cons" style="left:63.2%;">63.2</span>
-            </div>
-            <div class="bar-delta">−24.4</div>
-          </div>
-          <!-- + 2M: cons=60.7, ctr=41.1 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 2M</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:41.1%;"></div>
-                <div class="seg-gap" style="width:19.6%;"></div>
-                <div class="seg-rem" style="width:39.3%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:41.1%;">41.1</span>
-              <span class="lbl-cons" style="left:60.7%;">60.7</span>
-            </div>
-            <div class="bar-delta">−19.6</div>
           </div>
 
           <!-- RoboRefer: cons=87.0, ctr=59.7 -->
@@ -865,62 +756,6 @@
               <span class="lbl-cons" style="left:54.7%;">54.7</span>
             </div>
             <div class="bar-delta">−22.1</div>
-          </div>
-          <!-- + 80k: cons=50.6, ctr=30.2 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 80k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:30.2%;"></div>
-                <div class="seg-gap" style="width:20.4%;"></div>
-                <div class="seg-rem" style="width:49.4%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:30.2%;">30.2</span>
-              <span class="lbl-cons" style="left:50.6%;">50.6</span>
-            </div>
-            <div class="bar-delta">−20.4</div>
-          </div>
-          <!-- + 400k: cons=52.6, ctr=27.1 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 400k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:27.1%;"></div>
-                <div class="seg-gap" style="width:25.5%;"></div>
-                <div class="seg-rem" style="width:47.4%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:27.1%;">27.1</span>
-              <span class="lbl-cons" style="left:52.6%;">52.6</span>
-            </div>
-            <div class="bar-delta">−25.5</div>
-          </div>
-          <!-- + 800k: cons=55.8, ctr=26.4 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 800k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:26.4%;"></div>
-                <div class="seg-gap" style="width:29.4%;"></div>
-                <div class="seg-rem" style="width:44.2%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:26.4%;">26.4</span>
-              <span class="lbl-cons" style="left:55.8%;">55.8</span>
-            </div>
-            <div class="bar-delta">−29.4</div>
-          </div>
-          <!-- + 2M: cons=60.9, ctr=24.0 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 2M</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:24.0%;"></div>
-                <div class="seg-gap" style="width:36.9%;"></div>
-                <div class="seg-rem" style="width:39.1%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:24.0%;">24.0</span>
-              <span class="lbl-cons" style="left:60.9%;">60.9</span>
-            </div>
-            <div class="bar-delta">−36.9</div>
           </div>
 
           <!-- Qwen3: cons=73.3, ctr=41.7 -->
@@ -958,62 +793,6 @@
             </div>
             <div class="bar-delta">−17.7</div>
           </div>
-          <!-- + 80k: cons=80.2, ctr=56.9 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 80k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:56.9%;"></div>
-                <div class="seg-gap" style="width:23.3%;"></div>
-                <div class="seg-rem" style="width:19.8%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:56.9%;">56.9</span>
-              <span class="lbl-cons" style="left:80.2%;">80.2</span>
-            </div>
-            <div class="bar-delta">−23.3</div>
-          </div>
-          <!-- + 400k: cons=89.5, ctr=56.9 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 400k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:56.9%;"></div>
-                <div class="seg-gap" style="width:32.6%;"></div>
-                <div class="seg-rem" style="width:10.5%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:56.9%;">56.9</span>
-              <span class="lbl-cons" style="left:89.5%;">89.5</span>
-            </div>
-            <div class="bar-delta">−32.6</div>
-          </div>
-          <!-- + 800k: cons=88.7, ctr=70.8 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 800k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:70.8%;"></div>
-                <div class="seg-gap" style="width:17.9%;"></div>
-                <div class="seg-rem" style="width:11.3%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:70.8%;">70.8</span>
-              <span class="lbl-cons" style="left:88.7%;">88.7</span>
-            </div>
-            <div class="bar-delta">−17.9</div>
-          </div>
-          <!-- + 2M: cons=90.6, ctr=72.3 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 2M</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:72.3%;"></div>
-                <div class="seg-gap" style="width:18.3%;"></div>
-                <div class="seg-rem" style="width:9.4%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:72.3%;">72.3</span>
-              <span class="lbl-cons" style="left:90.6%;">90.6</span>
-            </div>
-            <div class="bar-delta">−18.3</div>
-          </div>
 
           <!-- NVILA: cons=74.4, ctr=40.0 -->
           <div class="bar-row" style="margin-top:0.5rem;">
@@ -1028,62 +807,6 @@
               <span class="lbl-cons" style="left:74.4%;">74.4</span>
             </div>
             <div class="bar-delta">−34.4</div>
-          </div>
-          <!-- + 80k: cons=71.6, ctr=50.8 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 80k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:50.8%;"></div>
-                <div class="seg-gap" style="width:20.8%;"></div>
-                <div class="seg-rem" style="width:28.4%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:50.8%;">50.8</span>
-              <span class="lbl-cons" style="left:71.6%;">71.6</span>
-            </div>
-            <div class="bar-delta">−20.8</div>
-          </div>
-          <!-- + 400k: cons=81.3, ctr=58.5 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 400k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:58.5%;"></div>
-                <div class="seg-gap" style="width:22.8%;"></div>
-                <div class="seg-rem" style="width:18.7%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:58.5%;">58.5</span>
-              <span class="lbl-cons" style="left:81.3%;">81.3</span>
-            </div>
-            <div class="bar-delta">−22.8</div>
-          </div>
-          <!-- + 800k: cons=84.6, ctr=67.7 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 800k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:67.7%;"></div>
-                <div class="seg-gap" style="width:16.9%;"></div>
-                <div class="seg-rem" style="width:15.4%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:67.7%;">67.7</span>
-              <span class="lbl-cons" style="left:84.6%;">84.6</span>
-            </div>
-            <div class="bar-delta">−16.9</div>
-          </div>
-          <!-- + 2M: cons=97.2, ctr=93.8 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 2M</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:93.8%;"></div>
-                <div class="seg-gap" style="width:3.4%;"></div>
-                <div class="seg-rem" style="width:2.8%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:93.8%;">93.8</span>
-              <span class="lbl-cons" style="left:97.2%;">97.2</span>
-            </div>
-            <div class="bar-delta">−3.4</div>
           </div>
 
           <!-- RoboRefer: cons=98.9, ctr=95.4 -->
@@ -1114,62 +837,6 @@
               <span class="lbl-cons" style="left:75.5%;">75.5</span>
             </div>
             <div class="bar-delta">−20.1</div>
-          </div>
-          <!-- + 80k: cons=69.7, ctr=60.0 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 80k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:60.0%;"></div>
-                <div class="seg-gap" style="width:9.7%;"></div>
-                <div class="seg-rem" style="width:30.3%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:60.0%;">60.0</span>
-              <span class="lbl-cons" style="left:69.7%;">69.7</span>
-            </div>
-            <div class="bar-delta">−9.7</div>
-          </div>
-          <!-- + 400k: cons=65.8, ctr=58.5 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 400k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:58.5%;"></div>
-                <div class="seg-gap" style="width:7.3%;"></div>
-                <div class="seg-rem" style="width:34.2%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:58.5%;">58.5</span>
-              <span class="lbl-cons" style="left:65.8%;">65.8</span>
-            </div>
-            <div class="bar-delta">−7.3</div>
-          </div>
-          <!-- + 800k: cons=61.2, ctr=58.5 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 800k</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:58.5%;"></div>
-                <div class="seg-gap" style="width:2.7%;"></div>
-                <div class="seg-rem" style="width:38.8%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:58.5%;">58.5</span>
-              <span class="lbl-cons" style="left:61.2%;">61.2</span>
-            </div>
-            <div class="bar-delta">−2.7</div>
-          </div>
-          <!-- + 2M: cons=62.0, ctr=53.8 -->
-          <div class="bar-row ft-variant">
-            <div class="bar-model" style="color:#bbb;">+ 2M</div>
-            <div class="bar-track-wrap">
-              <div class="bar-track">
-                <div class="seg-ctr" style="width:53.8%;"></div>
-                <div class="seg-gap" style="width:8.2%;"></div>
-                <div class="seg-rem" style="width:38.0%;"></div>
-              </div>
-              <span class="lbl-ctr"  style="left:53.8%;">53.8</span>
-              <span class="lbl-cons" style="left:62.0%;">62.0</span>
-            </div>
-            <div class="bar-delta">−8.2</div>
           </div>
 
           <!-- Qwen3: cons=98.1, ctr=90.8 -->
@@ -1212,7 +879,7 @@
     <h3 class="title is-4" style="margin-top:2.5rem;">Does data scaling help?</h3>
     <p style="font-size:0.92rem; color:var(--text-mid); line-height:1.65; margin-bottom:1rem;">
       One natural question: <em>can we simply train away this bias with more spatial data?</em>
-      Click below to reveal fine-tuned variants (80k → 2M spatial training samples) in the chart above.
+      Click below to see how fine-tuned variants (80k → 2M spatial training samples) compare.
     </p>
     <button id="toggle-ft-btn" onclick="toggleFtVariants()" style="
       display:inline-flex; align-items:center; gap:6px;
@@ -1223,21 +890,148 @@
     ">
       <span style="font-size:0.7rem;">▶</span> Show data-scaling variants
     </button>
+
+    <!-- Container for the JS-generated scaling chart -->
+    <div id="ft-chart-container" style="display:none; margin-top:1rem;"></div>
+
     <script>
-      function toggleFtVariants() {
-        const rows = document.querySelectorAll('.bar-row.ft-variant');
-        const btn = document.getElementById('toggle-ft-btn');
-        const isVisible = rows[0] && rows[0].classList.contains('visible');
-        rows.forEach(r => r.classList.toggle('visible', !isVisible));
-        btn.innerHTML = isVisible
-          ? '<span style="font-size:0.7rem;">▶</span> Show data-scaling variants'
-          : '<span style="font-size:0.7rem;">▼</span> Hide data-scaling variants';
+    (function(){
+      /* ── data: each model group has base + fine-tuned variants ── */
+      var S = [
+        /* EmbSpatial-Bench */
+        { bench:'emb', label:'EmbSpatial-Bench', models:[
+          {n:'Molmo-7B',      c:63.5, t:34.9},
+          {n:'+ 80k',         c:60.6, t:29.5, sub:1},
+          {n:'+ 400k',        c:62.7, t:27.1, sub:1},
+          {n:'+ 800k',        c:65.2, t:34.1, sub:1},
+          {n:'+ 2M',          c:65.3, t:39.5, sub:1},
+          {n:'NVILA-Lite-2B', c:49.0, t:27.1, gap:1},
+          {n:'+ 80k',         c:57.7, t:15.5, sub:1},
+          {n:'+ 400k',        c:61.1, t:34.1, sub:1},
+          {n:'+ 800k',        c:63.2, t:38.8, sub:1},
+          {n:'+ 2M',          c:60.7, t:41.1, sub:1},
+          {n:'RoboRefer-2B',  c:87.0, t:59.7, gap:1},
+          {n:'Qwen2.5-VL-3B', c:54.7, t:32.6, gap:1},
+          {n:'+ 80k',         c:50.6, t:30.2, sub:1},
+          {n:'+ 400k',        c:52.6, t:27.1, sub:1},
+          {n:'+ 800k',        c:55.8, t:26.4, sub:1},
+          {n:'+ 2M',          c:60.9, t:24.0, sub:1},
+          {n:'Qwen3-VL-235B', c:73.3, t:41.7, gap:1}
+        ]},
+        /* CV-Bench-3D */
+        { bench:'cv', label:'CV-Bench-3D', models:[
+          {n:'Molmo-7B',      c:93.1, t:75.4},
+          {n:'+ 80k',         c:80.2, t:56.9, sub:1},
+          {n:'+ 400k',        c:89.5, t:56.9, sub:1},
+          {n:'+ 800k',        c:88.7, t:70.8, sub:1},
+          {n:'+ 2M',          c:90.6, t:72.3, sub:1},
+          {n:'NVILA-Lite-2B', c:74.4, t:40.0, gap:1},
+          {n:'+ 80k',         c:71.6, t:50.8, sub:1},
+          {n:'+ 400k',        c:81.3, t:58.5, sub:1},
+          {n:'+ 800k',        c:84.6, t:67.7, sub:1},
+          {n:'+ 2M',          c:97.2, t:93.8, sub:1},
+          {n:'RoboRefer-2B',  c:98.9, t:95.4, gap:1},
+          {n:'Qwen2.5-VL-3B', c:75.5, t:55.4, gap:1},
+          {n:'+ 80k',         c:69.7, t:60.0, sub:1},
+          {n:'+ 400k',        c:65.8, t:58.5, sub:1},
+          {n:'+ 800k',        c:61.2, t:58.5, sub:1},
+          {n:'+ 2M',          c:62.0, t:53.8, sub:1},
+          {n:'Qwen3-VL-235B', c:98.1, t:90.8, gap:1}
+        ]}
+      ];
+
+      function renderRow(m) {
+        var gap = (m.c - m.t).toFixed(1);
+        var rem = (100 - m.c).toFixed(1);
+        var mt  = m.gap ? ' style="margin-top:0.5rem;"' : '';
+        var mc  = m.sub ? ' style="color:#bbb;"' : '';
+        return (m.gap?'':'') +
+          '<div class="bar-row"'+mt+'>' +
+            '<div class="bar-model"'+mc+'>' + m.n + '</div>' +
+            '<div class="bar-track-wrap">' +
+              '<div class="bar-track">' +
+                '<div class="seg-ctr" style="width:'+m.t+'%;"></div>' +
+                '<div class="seg-gap" style="width:'+gap+'%;"></div>' +
+                '<div class="seg-rem" style="width:'+rem+'%;"></div>' +
+              '</div>' +
+              '<span class="lbl-ctr" style="left:'+m.t+'%;">'+m.t+'</span>' +
+              '<span class="lbl-cons" style="left:'+m.c+'%;">'+m.c+'</span>' +
+            '</div>' +
+            '<div class="bar-delta">\u2212'+gap+'</div>' +
+          '</div>';
       }
+
+      function buildChart(container) {
+        /* tabs */
+        var tabsHtml = '<div class="bench-tabs">';
+        S.forEach(function(s,i){
+          tabsHtml += '<button class="ft-bench-tab'+(i===0?' active':'')+'" data-idx="'+i+'">'+s.label+'</button>';
+        });
+        tabsHtml += '</div>';
+
+        /* header + panels */
+        var chartHtml = '<div class="bar-chart" style="border-radius:0 8px 8px 8px;">';
+        chartHtml += '<div style="display:flex;align-items:center;gap:0.8rem;padding:0.5rem 1.1rem 0.1rem;">' +
+          '<div style="width:120px;flex-shrink:0;"></div>' +
+          '<div style="flex:1;position:relative;font-size:0.6rem;color:#bbb;"><span style="position:absolute;right:0;">100</span></div>' +
+          '<div style="width:46px;flex-shrink:0;font-size:0.6rem;color:#bbb;text-align:right;">Gap</div></div>';
+        chartHtml += '<div class="bar-body" style="padding-top:0.4rem;">';
+
+        S.forEach(function(s,i){
+          chartHtml += '<div class="ft-bench-panel'+(i===0?' active':'')+'" data-idx="'+i+'">';
+          s.models.forEach(function(m){ chartHtml += renderRow(m); });
+          chartHtml += '</div>';
+        });
+
+        chartHtml += '</div>'; /* /bar-body */
+        chartHtml += '<div class="bar-legend">' +
+          '<div class="leg-item"><div class="leg-dot" style="background:var(--red);"></div>Accuracy on counter samples</div>' +
+          '<div class="leg-item"><div class="leg-dot" style="background:var(--teal-light);"></div>Accuracy on consistent samples</div>' +
+          '<div class="leg-item"><div class="leg-dot" style="background:#D8DCE8;"></div>Below consistent accuracy (= 100 \u2212 consistent)</div>' +
+          '</div>';
+        chartHtml += '</div>'; /* /bar-chart */
+
+        container.innerHTML = tabsHtml + chartHtml;
+
+        /* tab switching */
+        container.querySelectorAll('.ft-bench-tab').forEach(function(tab){
+          tab.addEventListener('click', function(){
+            var idx = this.getAttribute('data-idx');
+            container.querySelectorAll('.ft-bench-tab').forEach(function(t){ t.classList.remove('active'); });
+            container.querySelectorAll('.ft-bench-panel').forEach(function(p){ p.classList.remove('active'); });
+            this.classList.add('active');
+            container.querySelector('.ft-bench-panel[data-idx="'+idx+'"]').classList.add('active');
+          });
+        });
+      }
+
+      /* expose toggle */
+      window.toggleFtVariants = function() {
+        var btn = document.getElementById('toggle-ft-btn');
+        var box = document.getElementById('ft-chart-container');
+        var open = box.style.display !== 'none';
+        if (!open && !box.dataset.init) { buildChart(box); box.dataset.init = '1'; }
+        box.style.display = open ? 'none' : 'block';
+        btn.innerHTML = open
+          ? '<span style="font-size:0.7rem;">\u25B6</span> Show data-scaling variants'
+          : '<span style="font-size:0.7rem;">\u25BC</span> Hide data-scaling variants';
+      };
+    })();
     </script>
-    <div class="note-box">
+
+    <div id="ft-note-box" class="note-box" style="display:none;">
       Scaling partially helps <strong>consistent-set accuracy</strong> — but <strong>counter-set accuracy lags behind</strong>
       and entanglement often worsens. The bias is not a data quantity problem.
     </div>
+    <script>
+      /* Show/hide note-box together with chart */
+      var _origToggle = window.toggleFtVariants;
+      window.toggleFtVariants = function() {
+        _origToggle();
+        var box = document.getElementById('ft-chart-container');
+        document.getElementById('ft-note-box').style.display = box.style.display;
+      };
+    </script>
 
 
     <!-- SpatialTunnel -->
