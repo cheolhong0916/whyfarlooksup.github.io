@@ -271,6 +271,33 @@
       z-index: 2;
       line-height: 1.6;
     }
+
+    /* Coming-soon buttons */
+    .btn-coming-soon {
+      position: relative;
+      opacity: 0.45;
+      cursor: not-allowed !important;
+      pointer-events: auto !important;
+    }
+    .btn-coming-soon::after {
+      content: "Coming soon";
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      font-size: 0.72rem;
+      white-space: nowrap;
+      padding: 3px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+    }
+    .btn-coming-soon:hover::after {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -344,22 +371,22 @@
           <div class="column has-text-centered" style="margin-top:1.5rem;">
             <div class="publication-links">
               <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                <span class="external-link button is-normal is-rounded is-dark btn-coming-soon">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
-                </a>
+                </span>
               </span>
               <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                <span class="external-link button is-normal is-rounded is-dark btn-coming-soon">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
-                </a>
+                </span>
               </span>
               <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                <span class="external-link button is-normal is-rounded is-dark btn-coming-soon">
                   <span class="icon"><i class="far fa-images"></i></span>
                   <span>SpatialTunnel</span>
-                </a>
+                </span>
               </span>
             </div>
           </div>
